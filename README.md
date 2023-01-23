@@ -15,7 +15,8 @@ L'applicazione fornisce:
 
 ### Anteprima App
 
-![Anteprima App](https://i.ibb.co/Yp0RS54/lampshool-mediakit.png)
 ![Anteprima App 2](https://i.ibb.co/pL4QKDj/lampshool-mediakit2.png)
+![Anteprima App](https://i.ibb.co/Yp0RS54/lampshool-mediakit.png)
+
 
 Made with ❤ and ReactNative by Matteo D'Apolito.
