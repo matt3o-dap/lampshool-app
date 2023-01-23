@@ -10,8 +10,8 @@ L'applicazione fornisce:
 
 ### Librerie 
 
-**React Redux**: Libreria per la gestione dello State;
-**Axios**: Libreria che permette di connettersi con le API di backend e gestire le richieste effettuate tramite il protocollo HTTP;
+* **React Redux**: Libreria per la gestione dello State;
+* **Axios**: Libreria che permette di connettersi con le API di backend e gestire le richieste effettuate tramite il protocollo HTTP;
 
 ### Anteprima App
 
