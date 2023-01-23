@@ -1,5 +1,7 @@
 # LampSchool App (Client)
-Client per la visualizzazione del registro elettronico LAMPSchool da Mobile.
+Client per la visualizzazione del registro elettronico LAMPSchool realizzato tramite il framework React Native.
+Il progetto è gestito nella modalità **Managed workflow** utilizzando la libreria **Expo** [Docs](https://docs.expo.dev/).
+
 
 L'applicazione fornisce:
 * Gestione multipla delle utenze;
