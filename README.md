@@ -13,6 +13,10 @@ L'applicazione fornisce:
 * **React Redux**: Libreria per la gestione dello State;
 * **Axios**: Libreria che permette di connettersi con le API di backend e gestire le richieste effettuate tramite il protocollo HTTP;
 
+
+### Download Android BETA APK
+[--> download APK](https://drive.google.com/file/d/1K4y1k_inGp2xdpGBCtfExLmCNV4y7hkT/view?usp=share_link)
+
 ### Anteprima App
 
 ![Anteprima App 2](https://i.ibb.co/pL4QKDj/lampshool-mediakit2.png)
