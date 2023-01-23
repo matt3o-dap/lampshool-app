@@ -28,6 +28,10 @@ Posizionarsi nella dir principale del progetto ed eseguire il comando seguente p
 
 Viene mostrato un **QRCode** che permette di visualizzare l'anteprima installando sul proprio device l'app **ExpoGO**. In alternativa cliccando il pulsante i viene avviato un emulatore (se configurato sul proprio PC)
 
+#### Configurazione Emulatore
+* Guida per  [Andorid Studio](https://docs.expo.dev/workflow/android-studio-emulator/)
+* Guida per [X Code](https://docs.expo.dev/workflow/ios-simulator/)
+
 ### Download Android BETA APK
 [--> download APK](https://drive.google.com/file/d/1K4y1k_inGp2xdpGBCtfExLmCNV4y7hkT/view?usp=share_link)
 
