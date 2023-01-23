@@ -15,6 +15,18 @@ L'applicazione fornisce:
 * **React Redux**: Libreria per la gestione dello State;
 * **Axios**: Libreria che permette di connettersi con le API di backend e gestire le richieste effettuate tramite il protocollo HTTP;
 
+### Development scripts
+
+Installare Expo CLI seguendo la documentazione da [Expo Docs](https://docs.expo.dev/get-started/installation/)
+
+Posizionarsi nella dir principale del progetto ed eseguire il comando seguente per avviare il progetto.
+
+#### `expo start`
+
+> Avvia l'applicazione nel simulatore configurato;
+
+
+Viene mostrato un **QRCode** che permette di visualizzare l'anteprima installando sul proprio device l'app **ExpoGO**. In alternativa cliccando il pulsante i viene avviato un emulatore (se configurato sul proprio PC)
 
 ### Download Android BETA APK
 [--> download APK](https://drive.google.com/file/d/1K4y1k_inGp2xdpGBCtfExLmCNV4y7hkT/view?usp=share_link)
