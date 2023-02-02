@@ -13,16 +13,17 @@ export const fetchDataDashboard = () => {
         }
         var nome = myPosts.cognome + " " + myPosts.nome;
 
+
         const datiDashboard = {
             num_ass: myPosts.numeroassenze,
             num_ritardi: ((myPosts.numeroritardi == null) ? 0 : myPosts.numeroritardi),
             num_uscite: ((myPosts.numerouscite == null) ? 0 : myPosts.numerouscite),
-            media: media(voti),
+            media: (!isNaN(media(voti))) ? media(voti) : "-",
             medieSOP: medieSOP(myPosts),
             nome: nome,
             classe: myPosts.classe,
             ultimo_voto: {
-                voto: myPosts.voto[0],
+                voto: (myPosts.voto[0] != 99) ? myPosts.voto[0] : "-",
                 data: myPosts.date[0],
                 tipo: myPosts.tipo[0],
                 giudizio: myPosts.giudizio[0],
@@ -37,10 +38,15 @@ export const fetchDataDashboard = () => {
 function media(nums) {
     if (nums.length > 0){
         var s = 0;
+        var counterVoti = 0; //conto i numeri pari a 99 e li sottraggo a nums.length per calcolare la media senza i voti pari a 99
+
         for (key in nums) {
-            s += parseFloat(nums[key]);
+            if(nums[key] != 99){
+                counterVoti++;
+                s += parseFloat(nums[key]);
+            }
         }
-        const media = (s / nums.length).toFixed(2); 
+        const media = (s / counterVoti).toFixed(2); 
         return media;
     } else {return '-'}
 }
@@ -64,13 +70,16 @@ const medieSOP = (myPosts) => {
             
         switch (myPosts.tipo[key]) {
             case 'S':
-                scritto.push(myPosts.voto[key])
+                if(myPosts.voto[key] != 99)
+                    scritto.push(myPosts.voto[key])
                 break
             case 'O':
-                orale.push(myPosts.voto[key])
+                if(myPosts.voto[key] != 99)
+                    orale.push(myPosts.voto[key])
                 break
             case 'P':
-                pratico.push(myPosts.voto[key])
+                if(myPosts.voto[key] != 99)
+                    pratico.push(myPosts.voto[key])
                 break
         }
         

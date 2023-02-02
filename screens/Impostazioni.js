@@ -33,11 +33,11 @@ export default function Impostazioni(props) {
     dispatch(logout());
   }
 
-  /*const onPressClean = () => {
+  /* const onPressClean = () => {
     dispatch(logout());
     dispatch(buttonAggiungiProfilo(1));
-    rimuoviAccount('alit1295');
-  }*/
+    rimuoviAccount('gen1295');
+  } */
 
   return (
     <View style={styles.container}>

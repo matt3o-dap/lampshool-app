@@ -20,16 +20,12 @@ import responsiveFontSize  from "../strumenti/responsiveFontSize";
 
 const istituti = [
   {
-    label: 'Istituto Tecnico Luigi Di Maggio',
-    value: 'http://217.59.198.84/lampschool/login/login.php?suffisso=it'
-  },
-  {
-    label: 'Istituto Tecnico Luigi Di Maggio - Serale',
-    value: 'http://217.59.198.84/lampschool/login/login.php?suffisso=ser'
+    label: '2020 Istituto Tecnico Luigi Di Maggio',
+    value: 'https://2020.registro.itdimaggio.edu.it/login/login.php?suffisso=it'
   },
   {
     label: 'TESTING',
-    value: 'http://botcompiti.altervista.org/lampschool/login/login.php?suffisso='
+    value: 'http://botcompiti.altervista.org/lampschool_custom/login/login.php?suffisso='
   }
 ]
 
@@ -73,7 +69,7 @@ export default function AddAccount(props) {
     }
     
     var url_split = value.split( '/' );
-    var link = url_split[0]+'//'+url_split[1]+url_split[2]+'/'+url_split[3]
+    var link = url_split[0]+'//'+url_split[1]+url_split[2]+'/';
 
     setLink(link)
     setSuffisso(params['suffisso'])

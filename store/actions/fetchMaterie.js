@@ -19,8 +19,10 @@ export const fetchMaterie = () => {
             
             for (key in myPosts.denominazione) {
                 if (myPosts.denominazione[key] === materie[i]) {
-                    somma = somma + parseFloat(myPosts.voto[key]);
-                    num_voti++;
+                    if(myPosts.voto[key] != 99){
+                        somma = somma + parseFloat(myPosts.voto[key]);
+                        num_voti++;
+                    }
                     voti_mat.push(myPosts.voto[key])
                 }
             }
@@ -66,13 +68,16 @@ const mediaSOP = (myPosts, materia) => {
             
             switch (myPosts.tipo[key]) {
                 case 'S':
-                    scritto.push(myPosts.voto[key])
+                    if(myPosts.voto[key] != 99)
+                        scritto.push(myPosts.voto[key])
                     break
                 case 'O':
-                    orale.push(myPosts.voto[key])
+                    if(myPosts.voto[key] != 99)
+                        orale.push(myPosts.voto[key])
                     break
                 case 'P':
-                    pratico.push(myPosts.voto[key])
+                    if(myPosts.voto[key] != 99)
+                        pratico.push(myPosts.voto[key])
                     break
             }
         }

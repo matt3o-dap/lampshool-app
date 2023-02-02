@@ -87,6 +87,7 @@ export default function Dashboard(props) {
         <View style={styles.header}>
             <Text style={{fontSize: responsiveFontSize(22), fontWeight: '200', color: '#265CDE'}}>Benvenuto,</Text>
             <Text style={{fontSize: responsiveFontSize(18), fontWeight: '700', color: '#265CDE'}}>{dataDashboard.nome}</Text>
+            
         </View>
         <View style={styles.medie_ass}>
             <View style={styles.tab}>
