@@ -10,30 +10,33 @@ export const LOGOUT = 'LOGOUT';
 export const SET_LIST = 'SET_LIST';
 
 export const logout = () => {
-    return async dispatch =>{
-        var keys = await AsyncStorage.getAllKeys();
-        var result = await AsyncStorage.multiGet(keys);
+    try {
+        return async dispatch =>{
+            
+            var keys = await AsyncStorage.getAllKeys();
+            var result = await AsyncStorage.multiGet(keys);
 
-        var username = ''
-        for (let i = 0; i < result.length; i++) {
-            if(result[i][0]) {
-                let user = JSON.parse(result[i][1])
-                if (user.isLogin) {
-                    username = user.username
+            var username = ''
+            for (let i = 0; i < result.length; i++) {
+                if(result[i][0]) {
+                    let user = JSON.parse(result[i][1])
+                    if (user.isLogin) {
+                        username = user.username
+                    }
                 }
             }
-        }
-        
-        if(username != ''){
-            AsyncStorage.getItem( username )
-            .then( data => {
-            data = JSON.parse( data );
-            data.isLogin = false;
-            AsyncStorage.setItem( username, JSON.stringify( data ) );
-            }).done();
+            
+            if(username != ''){
+                
+                var jsonValue = JSON.parse(await AsyncStorage.getItem(username));
+                jsonValue.isLogin = false;
+                await AsyncStorage.setItem(username, JSON.stringify(jsonValue));
 
-            dispatch({type: LOGOUT, username: false})
+                dispatch({type: LOGOUT, username: false})
+            }
         }
+    } catch (error) {
+        console.log(error);
     }
 }
 
@@ -110,10 +113,14 @@ export const setAccountLogged =  (username) => {
     return async dispatch =>{
         AsyncStorage.getItem( username )
         .then( data => {
-        data = JSON.parse( data );
-        data.isLogin = true;
-        AsyncStorage.setItem( username, JSON.stringify( data ) );
-        }).done();
+            data = JSON.parse( data );
+            data.isLogin = true;
+            AsyncStorage.setItem( username, JSON.stringify( data ) );
+        }).catch(function(error) {
+                console.log('There has been a problem with your fetch operation: ' + error.message);
+                alert(error.message);
+                throw error;
+            });
 
         dispatch({type: SET_ACCOUNT, username: true})
     }  
