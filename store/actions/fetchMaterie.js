@@ -13,9 +13,9 @@ export const fetchMaterie = () => {
         const materie = myPosts.materie;  
         
         for (const i in materie) {
-            const somma = 0;
-            const num_voti = 0;
-            const voti_mat = [];
+            var somma = 0;
+            var num_voti = 0;
+            var voti_mat = [];
             
             for (key in myPosts.denominazione) {
                 if (myPosts.denominazione[key] === materie[i]) {

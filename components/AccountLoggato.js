@@ -10,7 +10,7 @@ const AccountLoggato = props => {
     var inizialeNome = (props.nome).split("");
 
     const onPressAccount = () => {
-        dispatch(setAccountLogged(id_username))
+        dispatch(setAccountLogged(id_username));
     }; 
 
 

@@ -98,18 +98,10 @@ export default function Lezioni(props) {
         showsVerticalScrollIndicator ={false}
         horizontal={false}
       >
-        <ScrollView
-          style={styles.horizontalCard}
-          horizontal={true}
-          scrollEventThrottle={16}
-          pagingEnabled={true}
-          onMomentumScrollEnd={onChangeCard}
-          showsHorizontalScrollIndicator ={false}
-        >
-
+        
           <CalendarList style={styles.calendario}
-            minDate={'2021-09-10'}
-            maxDate={'2022-06-20'}
+            minDate={'2022-09-10'}
+            maxDate={'2023-06-20'}
             onDayPress={onDayPress}
             onDayLongPress={(day) => {console.log('selected day', day)}}
             markedDates={{
@@ -127,7 +119,8 @@ export default function Lezioni(props) {
             firstDay={1}
             calendarWidth={SCREEN_WIDTH - 40}
           />
-
+        
+        <View style={{alignItems: 'center'}}>
           <View style={styles.cardMateria}>
             <Text style={{fontSize: responsiveFontSize(15), fontWeight: '700', color: '#265CDE', marginBottom: 10}}>Seleziona Materia</Text>
 
@@ -142,15 +135,7 @@ export default function Lezioni(props) {
             // InputAccessoryView={() => null}
           /> 
           </View>
-
-        </ScrollView>
-
-        <View style={styles.paginationWrapper}>
-          {Array.from(Array(2).keys()).map((key, index) => (
-            <View style={[styles.paginationDots, { opacity: active === index ? 1 : 0.2 }]} key={index}/>
-          ))}
         </View>
-
 
         <View style={styles.switchArgomenti}>
             <View style={(isSwitch == 1) ? styles.tab : styles.tab_no}>
@@ -168,7 +153,7 @@ export default function Lezioni(props) {
         <View style={{alignItems: 'center'}}>
           {LezioniJson}
         </View>
-         : 
+        : 
           <View style={styles.no_lezione}>
             <Image source={require('../assets/icone/error.png')} style={{height: responsiveFontSize(75), width: responsiveFontSize(75),resizeMode: 'contain', marginRight: 5 }}  />
             <Text style={{fontSize: responsiveFontSize(20), fontWeight: '200', color: '#265CDE', marginTop: 10}}>Nessuna lezione presente!</Text>
@@ -184,7 +169,7 @@ const styles =  StyleSheet.create({
     flex: 1,
     backgroundColor: "#F3F4F3",
     paddingTop: SCREEN_HEIGHT / 11,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   header: {
     width: SCREEN_WIDTH - 40,
@@ -196,25 +181,23 @@ const styles =  StyleSheet.create({
   cardMateria: {
     width: SCREEN_WIDTH - 40,
     borderRadius: 25,
-    marginTop: 35,
-    marginLeft: 10,
+    marginTop: 20,
     padding: 30,
     backgroundColor: 'white',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   calendario: {
     width: SCREEN_WIDTH - 40,
     borderRadius: 25,
     marginTop: 35,
-    marginLeft: 10,
+    marginLeft: 20,
     backgroundColor: 'white',
   },
   switchArgomenti: {
     marginTop: 30,
     width: SCREEN_WIDTH,
     flexDirection: 'row',
-    //justifyContent: 'space-between',
     alignItems: 'center'
   },
   tab: {
