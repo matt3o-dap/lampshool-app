@@ -57,33 +57,33 @@ export default function Assenze(props) {
 
     <View style={styles.container}>
       <View style={styles.header}>
-          <Text style={{fontSize: responsiveFontSize(26), fontWeight: '700', color: '#265CDE'}}>Assenze</Text>
+          <Text style={{fontSize: responsiveFontSize(26), fontWeight: '700', color: '#5c6cba'}}>Assenze</Text>
       </View>
       <View style={styles.headerDati}>
         <View style={styles.headerRow}>
           <View style={styles.settoreSx}>
-            <Text style={{fontSize: responsiveFontSize(13), fontWeight: '600', color:"#265CDE"}} >Assenze giornaliere</Text>
+            <Text style={{fontSize: responsiveFontSize(13), fontWeight: '600', color:"#5c6cba"}} >Assenze giornaliere</Text>
           </View>
           <View style={styles.settoreDx}>
-            <Text style={{fontSize: responsiveFontSize(16), fontWeight: '800', color:"rgba(38, 92, 222, 0.5)"}} >{userAssenze.num_ass}</Text>
+            <Text style={{fontSize: responsiveFontSize(16), fontWeight: '800', color:"#9FABFF"}} >{userAssenze.num_ass}</Text>
           </View>
         </View>
 
         <View style={styles.headerRow}>
           <View style={styles.settoreSx}>
-            <Text style={{fontSize: responsiveFontSize(13), fontWeight: '600', color:"#265CDE"}} >Ritardi</Text>
+            <Text style={{fontSize: responsiveFontSize(13), fontWeight: '600', color:"#5c6cba"}} >Ritardi</Text>
           </View>
           <View style={styles.settoreDx}>
-            <Text style={{fontSize: responsiveFontSize(16), fontWeight: '800', color:"rgba(38, 92, 222, 0.5)"}} >{userAssenze.num_ritardi}</Text>
+            <Text style={{fontSize: responsiveFontSize(16), fontWeight: '800', color:"#9FABFF"}} >{userAssenze.num_ritardi}</Text>
           </View>
         </View>
 
         <View style={styles.headerRowLast}>
           <View style={styles.settoreSx}>
-            <Text style={{fontSize: responsiveFontSize(13), fontWeight: '600', color:"#265CDE"}} >Uscite anticipate</Text>
+            <Text style={{fontSize: responsiveFontSize(13), fontWeight: '600', color:"#5c6cba"}} >Uscite anticipate</Text>
           </View>
           <View style={styles.settoreDx}>
-            <Text style={{fontSize: responsiveFontSize(16), fontWeight: '800', color:"rgba(38, 92, 222, 0.5)"}} >{userAssenze.num_uscite}</Text>
+            <Text style={{fontSize: responsiveFontSize(16), fontWeight: '800', color:"#9FABFF"}} >{userAssenze.num_uscite}</Text>
           </View>
         </View>
 

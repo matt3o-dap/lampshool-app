@@ -5,7 +5,7 @@ import responsiveFontSize  from "../strumenti/responsiveFontSize";
 
 
 const ArcoMedie = props => {
-    const color = (props.tipo == 'scritto') ? '#FC9C52' : (props.tipo == 'orale') ? '#8CCC74' : '#149CFC'
+    const color = (props.tipo == 'scritto') ? '#9FABFF' : (props.tipo == 'orale') ? '#C69BFF' : '#FD76FF'
     
     return(
         <View style={{alignItems: 'center'}}>

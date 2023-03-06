@@ -1,4 +1,3 @@
-import DATA from '../../data/offline-data';
 import {FETCH_DATA_DASH} from "../actions/fetchDataDashboard";
 
 dataDashboard = {

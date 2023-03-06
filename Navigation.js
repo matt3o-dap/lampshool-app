@@ -6,7 +6,6 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import Materie from './screens/Materie';
 import DettagliMateria from './screens/DettagliMateria';
 import Assenze from './screens/Assenze';
-import Login from './screens/Login';
 import Dashboard from './screens/Dashboard';
 import Lezioni from "./screens/Lezioni";
 import Impostazioni from "./screens/Impostazioni";
@@ -16,6 +15,7 @@ import {checkAccount, checkAccountLogged} from './store/actions/authUser';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import AccountLoggati  from "./screens/AccountLoggati";
 import AddAccount from "./screens/AddAccount"
+import { isIos } from './strumenti/helper';
 
 const Drawer = createDrawerNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -35,9 +35,9 @@ function DrawerNavigation () {
     return (
         <Tab.Navigator 
           initialRouteName="Dashboard"
-          activeColor="#265CDE"
-          inactiveColor="#A0B6EA"
-          barStyle={{ backgroundColor: '#F3F4F3', paddingBottom: 25 }}
+          activeColor="#C69BFF"
+          inactiveColor="#9FABFF"
+          barStyle={{ backgroundColor: '#F3F4F3', paddingBottom: isIos ? 0 : 10 }}
           labeled={false}
         >
           <Tab.Screen 
@@ -66,7 +66,7 @@ function DrawerNavigation () {
           options={{
             tabBarLabel: 'Dashboard',
             tabBarIcon: ({ color }) => (
-              <Image source={require('./assets/icone/home.png')} style={{height: 35, width: 35,resizeMode: 'contain', marginRight: 5, tintColor: color }}  />
+              <Image source={require('./assets/icone/home.png')} style={{height: 25, width: 25,resizeMode: 'contain', marginRight: 5, tintColor: color }}  />
             ),
           }}
           />
@@ -92,15 +92,6 @@ function DrawerNavigation () {
           />
         </Tab.Navigator>
     ) 
-}
-
-
-function AuthNavigation() {
-  return (
-    <Drawer.Navigator>
-      <Drawer.Screen name="Login" component={Login} />
-    </Drawer.Navigator>
-  )
 }
 
 function AddAccountScreen() {
@@ -133,23 +124,12 @@ function MainNavigation() {
   }, [dispatch])
 
   //Controllo lista account
-  //const [thereIsList, setThereIsList] = React.useState(false);
-  //checkAccount().then((value) => {setThereIsList(value)});  
 
   const isUserLogged = useSelector(state => state).authReducer.username; 
   const thereIsList = useSelector(state => state).authReducer.lista; 
 
   console.log("is user log: ", isUserLogged, " is list: ", thereIsList);
 
-  /*return (
-    <NavigationContainer>
-      {userLogged ? (
-        <DrawerNavigation />
-      ) : (
-        <AuthNavigation />
-      )}
-    </NavigationContainer>
-  )*/
   return (
     <NavigationContainer>
       {thereIsList ? ( 

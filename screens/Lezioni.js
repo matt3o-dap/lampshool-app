@@ -92,7 +92,7 @@ export default function Lezioni(props) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={{fontSize: responsiveFontSize(26), fontWeight: '700', color: '#265CDE'}}>Lezioni</Text>
+        <Text style={{fontSize: responsiveFontSize(26), fontWeight: '700', color: '#5c6cba'}}>Lezioni</Text>
       </View>
       <ScrollView 
         showsVerticalScrollIndicator ={false}
@@ -100,15 +100,15 @@ export default function Lezioni(props) {
       >
         
           <CalendarList style={styles.calendario}
-            minDate={'2022-09-10'}
-            maxDate={'2023-06-20'}
+            //minDate={'2022-09-10'}
+            //maxDate={'2023-06-20'}
             onDayPress={onDayPress}
             onDayLongPress={(day) => {console.log('selected day', day)}}
             markedDates={{
                 [selected]: {
                     selected: true,
                     disableTouchEvent: true,
-                    selectedColor: '#265CDE',
+                    selectedColor: '#5c6cba',
                     selectedTextColor: 'white',
                 }
                 }}
@@ -118,11 +118,14 @@ export default function Lezioni(props) {
             hideExtraDays={true}
             firstDay={1}
             calendarWidth={SCREEN_WIDTH - 40}
+            theme={{
+              todayTextColor: '#C69BFF'
+            }}
           />
         
         <View style={{alignItems: 'center'}}>
           <View style={styles.cardMateria}>
-            <Text style={{fontSize: responsiveFontSize(15), fontWeight: '700', color: '#265CDE', marginBottom: 10}}>Seleziona Materia</Text>
+            <Text style={{fontSize: responsiveFontSize(15), fontWeight: '700', color: '#5c6cba', marginBottom: 10}}>Seleziona Materia</Text>
 
             <RNPickerSelect
             onValueChange={(value) => onChangeMateria(value)}
@@ -140,12 +143,12 @@ export default function Lezioni(props) {
         <View style={styles.switchArgomenti}>
             <View style={(isSwitch == 1) ? styles.tab : styles.tab_no}>
                 <TouchableOpacity onPress={() => onPressSwitch(1)}>
-                    <Text style={{fontSize: responsiveFontSize(15), fontWeight: '700', color: '#265CDE'}}>Attività</Text>
+                    <Text style={{fontSize: responsiveFontSize(15), fontWeight: '700', color: '#5c6cba'}}>Attività</Text>
                 </TouchableOpacity>
             </View>
             <View style={(isSwitch == 2) ? styles.tab : styles.tab_no}>
                 <TouchableOpacity onPress={() => onPressSwitch(2)}>
-                    <Text style={{fontSize: responsiveFontSize(15), fontWeight: '700', color: '#265CDE'}}>Compiti</Text>
+                    <Text style={{fontSize: responsiveFontSize(15), fontWeight: '700', color: '#5c6cba'}}>Compiti</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -156,7 +159,7 @@ export default function Lezioni(props) {
         : 
           <View style={styles.no_lezione}>
             <Image source={require('../assets/icone/error.png')} style={{height: responsiveFontSize(75), width: responsiveFontSize(75),resizeMode: 'contain', marginRight: 5 }}  />
-            <Text style={{fontSize: responsiveFontSize(20), fontWeight: '200', color: '#265CDE', marginTop: 10}}>Nessuna lezione presente!</Text>
+            <Text style={{fontSize: responsiveFontSize(20), fontWeight: '200', color: '#5c6cba', marginTop: 10}}>Nessuna lezione presente!</Text>
           </View>
         }
       </ScrollView>
@@ -217,7 +220,7 @@ const styles =  StyleSheet.create({
   nomeMese: {
     fontSize: 20,
     fontWeight: '800',
-    color: '#265CDE',
+    color: '#5c6cba',
     paddingBottom: 10
   },
   no_lezione: {
@@ -236,7 +239,7 @@ const styles =  StyleSheet.create({
     height: 10,
     width: 10,
     borderRadius: 10 / 2,
-    backgroundColor: '#265CDE',
+    backgroundColor: '#5c6cba',
     marginLeft: 10,
   },
   pickerMateria: {
@@ -251,9 +254,9 @@ const pickerSelectStyles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 10,
     borderWidth: 1,
-    borderColor: '#265CDE',
+    borderColor: '#5c6cba',
     borderRadius: 14,
-    color: '#265CDE',
+    color: '#5c6cba',
     fontWeight: '700',
     paddingRight: 30,
   },
@@ -262,9 +265,9 @@ const pickerSelectStyles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 8,
     borderWidth: 0.5,
-    borderColor: '#265CDE',
+    borderColor: '#5c6cba',
     borderRadius: 14,
-    color: '#265CDE',
+    color: '#5c6cba',
     paddingRight: 30, 
   },
 });

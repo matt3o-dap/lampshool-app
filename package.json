@@ -19,6 +19,8 @@
     "expo-notifications": "~0.17.0",
     "expo-permissions": "~14.0.0",
     "expo-status-bar": "~1.4.2",
+    "html-to-text": "^9.0.4",
+    "javascript-color-gradient": "^2.4.4",
     "md5": "^2.3.0",
     "moment": "^2.29.1",
     "react": "18.1.0",

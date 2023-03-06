@@ -1,6 +1,5 @@
 import Materia from '../../models/Materia';
 import {fetchJson} from './fetchJSON';
-
 export const FETCH_MATERIE = 'FETCH_MATERIE';
 
 
@@ -11,6 +10,7 @@ export const fetchMaterie = () => {
         const loadMaterie = [];
 
         const materie = myPosts.materie;  
+        const listaColori = ColorStep([253, 118, 255, 1], [0, 128, 255, 1], myPosts.materie.length)
         
         for (const i in materie) {
             var somma = 0;
@@ -19,11 +19,11 @@ export const fetchMaterie = () => {
             
             for (key in myPosts.denominazione) {
                 if (myPosts.denominazione[key] === materie[i]) {
-                    if(myPosts.voto[key] != 99){
+                    if(parseFloat(myPosts.voto[key]) != 99){
+                        voti_mat.push(myPosts.voto[key])
                         somma = somma + parseFloat(myPosts.voto[key]);
                         num_voti++;
                     }
-                    voti_mat.push(myPosts.voto[key])
                 }
             }
             const media = (somma / num_voti).toFixed(2);  
@@ -33,7 +33,8 @@ export const fetchMaterie = () => {
             const maxVoto = (isNaN(Math.max(...voti_mat))) ? '-' : Math.max(...voti_mat)
             const minVoto = (isNaN(Math.min(...voti_mat))) ? '-' : Math.min(...voti_mat)
             const caret = (media < 6) ? false : true;
-            const colore = getRandomColor();
+            const colore = listaColori[i];
+            //const colore = "#000000"
             
 
             loadMaterie.push(
@@ -95,15 +96,6 @@ const mediaSOP = (myPosts, materia) => {
     return medieDict
 }
 
-function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-
 function media(nums) {
     if (nums.length > 0){
         var s = 0;
@@ -126,4 +118,38 @@ export const listaMaterie = async () => {
         })
     }
     return materie; 
+}
+
+/**
+ * Get color steps (gradient) between two colors.
+ * @author Arjan Haverkamp (arjan-at-avoid-dot-org)
+ * @param {string} colorStart Any color. F.e.: 'red', '#f0f', '#ff00ff', 'rgb(x,y,x)', 'rgba(r,g,b,a)', 'hsl(180, 50%, 50%)'
+ * @param {string} colorEnd Any color
+ * @param {int} steps Number of color steps to return
+ * @returns {array} Array of 'rgb(r,g,b)' or 'rgba(r,g,b,a)' arrays
+ */
+const ColorStep = (start, end, steps) => {
+    opacityStep = (end[3] * 100 - start[3] * 100) / steps,
+    colors = [];
+
+    let alpha = 0, opacity = start[3] * 100;
+
+    console.log(start, end, steps);
+
+    for (let i = 0; i < steps; i++) {
+        alpha += 1.0 / steps;
+        opacity += opacityStep;
+
+        let c = [
+            Math.round(end[0] * alpha + (1 - alpha) * start[0]),
+            Math.round(end[1] * alpha + (1 - alpha) * start[1]),
+            Math.round(end[2] * alpha + (1 - alpha) * start[2])
+        ];
+
+        colors.push(
+            opacity == 100 ? `rgb(${c[0]},${c[1]},${c[2]})` : `rgba(${c[0]},${c[1]},${c[2]},${opacity / 100})`
+        );
+    }
+
+    return colors;
 }

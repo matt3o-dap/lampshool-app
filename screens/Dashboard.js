@@ -56,19 +56,17 @@ export default function Dashboard(props) {
   const comunicazioniData = useSelector(state => state).comunicazioniReducer.posts; 
 
   //colore badge ultimo voto
-  const coloreBadge = (dataDashboard.ultimo_voto.tipo == 'S') ? '#FC9C52' : (dataDashboard.ultimo_voto.tipo == 'O') ? '#8CCC74' : '#149CFC'
+  const coloreBadge = (dataDashboard.ultimo_voto.tipo == 'S') ? '#9FABFF' : (dataDashboard.ultimo_voto.tipo == 'O') ? '#C69BFF' : '#FD76FF'
   
 
   const comunicazioni = comunicazioniData.map((dati, index) =>(
     <Avviso 
       key = {index}
-      testo = {dati.testo}
+      testo = {dati.testoAlt}
       data = {dati.data}
       onPressAvviso = {() => {
         setVisible(!visible);
-        setAvvisoVisible(dati.testo)
-
-        const strippedString = (dati.testo).replace(/(<([^>]+)>)/gi, "@");
+        setAvvisoVisible(dati.testo);
       }}
     />
   ));
@@ -85,24 +83,24 @@ export default function Dashboard(props) {
     >
     <View style={styles.container}>
         <View style={styles.header}>
-            <Text style={{fontSize: responsiveFontSize(22), fontWeight: '200', color: '#265CDE'}}>Benvenuto,</Text>
-            <Text style={{fontSize: responsiveFontSize(18), fontWeight: '700', color: '#265CDE'}}>{dataDashboard.nome}</Text>
+            <Text style={{fontSize: responsiveFontSize(22), fontWeight: '200', color: '#5c6cba'}}>Benvenuto,</Text>
+            <Text style={{fontSize: responsiveFontSize(18), fontWeight: '700', color: '#5c6cba'}}>{dataDashboard.nome}</Text>
             
         </View>
         <View style={styles.medie_ass}>
             <View style={styles.tab}>
-                <Text style={{fontSize: responsiveFontSize(20), fontWeight: '200', color: '#265CDE'}}>Media</Text>
-                <Text style={{fontSize: responsiveFontSize(25), fontWeight: '700', color: '#265CDE'}}>{dataDashboard.media}</Text>
+                <Text style={{fontSize: responsiveFontSize(20), fontWeight: '200', color: '#5c6cba'}}>Media</Text>
+                <Text style={{fontSize: responsiveFontSize(25), fontWeight: '700', color: '#5c6cba'}}>{dataDashboard.media}</Text>
             </View>
             <View style={styles.tab}>
               <TouchableOpacity onPress={goToAssenze}>
                   <View>
-                      <Text style={{fontSize: responsiveFontSize(17), fontWeight: '200', color: '#265CDE'}}>Assenze</Text>
-                      <Text style={{fontSize: responsiveFontSize(17), fontWeight: '700', color: '#265CDE'}}>{dataDashboard.num_ass}</Text>
+                      <Text style={{fontSize: responsiveFontSize(17), fontWeight: '200', color: '#5c6cba'}}>Assenze</Text>
+                      <Text style={{fontSize: responsiveFontSize(17), fontWeight: '700', color: '#5c6cba'}}>{dataDashboard.num_ass}</Text>
                   </View>
-                  <View style={{marginTop: 2, borderTopWidth: 1, borderColor: '#265CDE', paddingTop: 5}}>
-                      <Text style={{fontSize: responsiveFontSize(17), fontWeight: '200', color: '#265CDE'}}>Ritardi</Text>
-                      <Text style={{fontSize: responsiveFontSize(17), fontWeight: '700', color: '#265CDE'}}>{dataDashboard.num_ritardi}</Text>
+                  <View style={{marginTop: 2, borderTopWidth: 1, borderColor: '#5c6cba', paddingTop: 5}}>
+                      <Text style={{fontSize: responsiveFontSize(17), fontWeight: '200', color: '#5c6cba'}}>Ritardi</Text>
+                      <Text style={{fontSize: responsiveFontSize(17), fontWeight: '700', color: '#5c6cba'}}>{dataDashboard.num_ritardi}</Text>
                   </View>
               </TouchableOpacity> 
             </View>
@@ -129,17 +127,17 @@ export default function Dashboard(props) {
         </View>
 
         <View style={styles.ultimo_voto}>
-          <Text style={{fontSize: responsiveFontSize(13), fontWeight: '800', color: '#265CDE', marginBottom: 10}}>Ultimo voto</Text>
+          <Text style={{fontSize: responsiveFontSize(13), fontWeight: '800', color: '#5c6cba', marginBottom: 10}}>Ultimo voto</Text>
 
           <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 5}}>
             <Image source={require('../assets/icone/data.png')} style={{height: responsiveFontSize(12), width: responsiveFontSize(12),resizeMode: 'contain', marginRight: 5, tintColor: '#5f8aed' }}  />
-            <Text style={{fontSize: responsiveFontSize(12), fontWeight: '300', color: '#265CDE'}}>{dataDashboard.ultimo_voto.data}</Text>
+            <Text style={{fontSize: responsiveFontSize(12), fontWeight: '300', color: '#5c6cba'}}>{dataDashboard.ultimo_voto.data}</Text>
           </View>
           
           <View style={styles.ultimo_voto_tab}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <Image source={require('../assets/icone/tipo_materia.png')} style={{height: responsiveFontSize(12), width: responsiveFontSize(12),resizeMode: 'contain', marginRight: 5, tintColor: '#5f8aed' }}  />
-              <Text style={{fontSize: responsiveFontSize(13), fontWeight: '700', color: '#265CDE'}}>{dataDashboard.ultimo_voto.materia}</Text>
+              <Text style={{fontSize: responsiveFontSize(13), fontWeight: '700', color: '#5c6cba'}}>{dataDashboard.ultimo_voto.materia}</Text>
             </View>
 
             <View style={{backgroundColor: coloreBadge, padding: 4, borderRadius: 6}}>
@@ -147,13 +145,13 @@ export default function Dashboard(props) {
             </View>
 
 
-            <Text style={{fontSize: responsiveFontSize(17), fontWeight: '800', color: '#5f8aed'}}>{dataDashboard.ultimo_voto.voto}</Text>
+            <Text style={{fontSize: responsiveFontSize(17), fontWeight: '800', color: '#9FABFF'}}>{dataDashboard.ultimo_voto.voto}</Text>
           </View>
-          <Text style={{fontSize: responsiveFontSize(13), fontWeight: '200', color: '#265CDE'}}>{dataDashboard.ultimo_voto.giudizio}</Text>
+          <Text style={{fontSize: responsiveFontSize(13), fontWeight: '200', color: '#5c6cba'}}>{dataDashboard.ultimo_voto.giudizio}</Text>
 
         </View>
         <View style={styles.comunicazioni}>
-            <Text style={{fontSize: responsiveFontSize(20), fontWeight: '800', color: '#265CDE', marginBottom: 10}}>Comunicazioni</Text>
+            <Text style={{fontSize: responsiveFontSize(20), fontWeight: '800', color: '#5c6cba', marginBottom: 10}}>Comunicazioni</Text>
             <ScrollView showsVerticalScrollIndicator ={false}>
                 {comunicazioni}
             </ScrollView>
@@ -164,7 +162,7 @@ export default function Dashboard(props) {
       
       <Overlay isVisible={visible} onBackdropPress={() => {setVisible(!visible);}}>
         <View style={styles.avvisoOverlay}>
-          <Hyperlink linkDefault={ true } linkStyle={ { color: '#265CDE'} }>
+          <Hyperlink linkDefault={ true } linkStyle={ { color: '#5c6cba'} }>
             <Text>{avvisoVisible}</Text>
             {/* <HTML source={{ html: avvisoVisible }}/> */}
           </Hyperlink> 
