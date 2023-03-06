@@ -47,6 +47,11 @@ const cambiaVoto = (voto) => {
     var lista = voto.split(".");
 
     var intero = lista[0];
+
+    if (intero == "99"){
+        return "A";
+    }
+
     var decimale = lista[1];
 
     switch (decimale) {

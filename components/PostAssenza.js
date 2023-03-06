@@ -1,29 +1,31 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
-import {SCREEN_HEIGHT, SCREEN_WIDTH} from '../strumenti/helper'
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../strumenti/helper'
 import { LinearGradient } from 'expo-linear-gradient';
-import responsiveFontSize  from "../strumenti/responsiveFontSize";
+import responsiveFontSize from "../strumenti/responsiveFontSize";
 
 
 const PostAssenza = props => {
 
+    const stato_giustifica_b = (props.stato == 1) ? 'rgba(159, 171, 255, 0.2)' : 'rgba(253, 118, 255, 0.2)'; // light giust e non giust
+    const stato_giustifica_t = (props.stato == 1) ? '#9FABFF' : '#FD76FF'; // accent giust e non giust
 
-    const stato_giustifica_b = (props.stato == 1) ? 'rgba(180, 220, 28, 0.2)' : 'rgba(245, 66, 66, 0.2)';
-    const stato_giustifica_t = (props.stato == 1) ? '#8ECE1E' : '#F54242';
+    const altro = (props.tipologia != 'a') ? "#5c6cba" : stato_giustifica_t;
+    // territorio sconosciuto
+    const tipologia_text = (props.tipologia == 'r' ? '#C69BFF' : '#5c6cba'); // testo uscita ant??
+    // probabilmente i ritardi
+    const tipologia_bd = (props.tipologia == 'r' ? '#C69BFF' : '#5c6cba');
+    const tipologia_bg = (props.tipologia == 'r' ? 'rgba(198, 155, 255, 0.2)' : 'rgba(92, 108, 186, 0.2)'); // sfondo uscita anticipata?
 
-    const tipologia_text = (props.tipologia == 'r' ? '#f2be00' : '#f7710a');
-    const tipologia_bd = (props.tipologia == 'r' ? '#f2da00' : '#f7710a');
-    const tipologia_bg = (props.tipologia == 'r' ? 'rgba(242, 218, 0, 0.2)' : 'rgba(247, 113, 10, 0.2)');
-
-    return(
-        <View style={[styles.container, {backgroundColor: (props.tipologia == 'a') ? stato_giustifica_b : tipologia_bg, borderColor: (props.tipologia == 'r') ? tipologia_bd : stato_giustifica_t}]}>
+    return (
+        <View style={[styles.container, { backgroundColor: (props.tipologia == 'a') ? stato_giustifica_b : tipologia_bg, borderColor: (props.tipologia == 'r') ? tipologia_bd : altro }]}>
             <View style={styles.settore}>
-                <Text style={[styles.data, {color: (props.tipologia == 'a') ? stato_giustifica_t : tipologia_text}]} >{(props.tipologia == 'a' ? "ASSENZA" : (props.tipologia == 'r') ? "RITARDO" : "USCITA ANT.")}</Text>
-                <Text style={[styles.data, {color: (props.tipologia == 'a') ? stato_giustifica_t : tipologia_text}]} >{props.data}</Text>
-                {(props.orario) ? <Text style={[styles.sottotitolo, {color: (props.tipologia == 'a') ? stato_giustifica_t : tipologia_text}]}> {(props.tipologia == 'r') ? 'Entrata ore:' : (props.tipologia == 'u' ? 'Uscita ore:' : null)} {props.orario}</Text> : null}
+                <Text style={[styles.data, { color: (props.tipologia == 'a') ? stato_giustifica_t : tipologia_text }]} >{(props.tipologia == 'a' ? "ASSENZA" : (props.tipologia == 'r') ? "RITARDO" : "USCITA ANT.")}</Text>
+                <Text style={[styles.data, { color: (props.tipologia == 'a') ? stato_giustifica_t : tipologia_text }]} >{props.data}</Text>
+                {(props.orario) ? <Text style={[styles.sottotitolo, { color: (props.tipologia == 'a') ? stato_giustifica_t : tipologia_text }]}> {(props.tipologia == 'r') ? 'Entrata ore:' : (props.tipologia == 'u' ? 'Uscita ore:' : null)} {props.orario}</Text> : null}
             </View>
             <View style={styles.settore}>
-                <Text style={[styles.giustifica, {color: (props.tipologia == 'a') ? stato_giustifica_t : tipologia_text}]}>{props.giustifica}</Text>
+                <Text style={[styles.giustifica, { color: (props.tipologia == 'a') ? stato_giustifica_t : tipologia_text }]}>{props.giustifica}</Text>
             </View>
         </View>
     )

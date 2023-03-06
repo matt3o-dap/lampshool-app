@@ -43,11 +43,11 @@ export default function AccountLoggati(props) {
     <LinearGradient
             start={{ x: 0, y: 0 }}
             end={{x: 1, y: 1 }}
-            colors={['#608ff7', '#61c8e7']}
+            colors={['#0080FF', '#FD76FF']}
             style={styles.container}
     >
         <View contentContainerStyle={styles.header}> 
-          <Image source={require('../assets/images/logo_lamp.png')} style={{height: 100, resizeMode: 'contain'}}  />
+          <Image source={require('../assets/icon-white.png')} style={{height: 100, resizeMode: 'contain'}}  />
         </View>
         <Text style={{color: 'white',fontSize: 20, fontWeight: '200', marginTop: 10}}>Seleziona un account!</Text>
         <ScrollView horizontal={true} style={{paddingLeft: 20, marginTop: 40}} contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }} showsHorizontalScrollIndicator ={false}>

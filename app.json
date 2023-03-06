@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "LampSchool",
-    "slug": "lampschool",
+    "slug": "lampschool-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,16 +17,16 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "com.matteodapolito.lampschool",
+      "bundleIdentifier": "it.edu.itdimaggio.lampschool-app",
       "buildNumber": "1.0.0",
-      "supportsTablet": false
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.matteodapolito.lampschool",
+      "package": "it.edu.itdimaggio.lampschool-app",
       "versionCode": 1
     },
     "web": {

@@ -1,4 +1,3 @@
-import DATA from '../../data/offline-data';
 import {FETCH_POST_ASS, FETCH_POST_RIT} from "../actions/fetchAssenze";
 
 //Creiamo lo state INIZIALE altrimenti lo state da cambiare risulterà vuoto

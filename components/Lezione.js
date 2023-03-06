@@ -11,8 +11,8 @@ const Lezione = props => {
 
     return(
         <View style={styles.container}>
-            <Text style={{fontSize: responsiveFontSize(13), fontWeight: '500', color: '#265CDE'}}>{props.materia} - {props.data}</Text>
-            <Text style={{fontSize: responsiveFontSize(13), fontWeight: '300', color: '#265CDE'}}>{props.testo}</Text>
+            <Text style={{fontSize: responsiveFontSize(13), fontWeight: '500', color: '#5c6cba'}}>{props.materia} - {props.data}</Text>
+            <Text style={{fontSize: responsiveFontSize(13), fontWeight: '300', color: '#5c6cba'}}>{props.testo}</Text>
         </View>
     )
 }

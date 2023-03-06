@@ -15,10 +15,10 @@ import responsiveFontSize  from "../strumenti/responsiveFontSize";
 import  moment from 'moment'
 
 
-
-
 export default function DettagliMateria(props) {
   const {materia, sigla, colore, max, min, medie} = props.route.params;
+
+  let newSigla = truncate(sigla, 17);
 
   const [isLoading, setIsLoading] = useState(false);
   const [isSwitch, setIsSwitch] = useState(1);
@@ -78,7 +78,7 @@ export default function DettagliMateria(props) {
         <View style={styles.containerHeader}>
           <View style={[styles.containerMedia, {backgroundColor: colore}]}>
             <View style={styles.settoreSx}>
-                <Text style={{fontSize: responsiveFontSize(18), fontWeight: '700', color: 'white', marginTop: 15 }} >{sigla}</Text>
+                <Text style={{fontSize: responsiveFontSize(18), fontWeight: '700', color: 'white', marginTop: 15 }} >{newSigla}</Text>
             </View>
             <View style={styles.settoreDx}>
                 <Text style={{fontSize: responsiveFontSize(22), fontWeight: '800', color: 'white', marginTop: 15 }} >{medie.media_totale}</Text>
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH,
     justifyContent: 'flex-start',
     height: '55%',
-    paddingTop: 30,
+    paddingTop: 40,
     borderBottomRightRadius: 20,
     borderBottomLeftRadius: 20
   },
@@ -169,12 +169,13 @@ const styles = StyleSheet.create({
   },
   cardRiepilogo: {
     width: SCREEN_WIDTH - 50,
-    height: '70%',
+    height: '60%',
     backgroundColor: 'white',
     position: 'absolute',
     top: '25%',
     borderRadius: 20,
-    padding: 15,
+    padding: 20,
+    marginTop: 15,
 
     //Its for IOS
     shadowColor: 'black',
@@ -231,3 +232,11 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255, 255, 255, 0)'
   }
 });
+
+const truncate = ( str, n, useWordBoundary ) => {
+  if (str.length <= n) { return str; }
+  const subString = str.slice(0, n-1); // the original check
+  return (useWordBoundary 
+    ? subString.slice(0, subString.lastIndexOf(" ")) 
+    : subString) + "...";
+};

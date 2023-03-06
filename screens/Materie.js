@@ -38,7 +38,7 @@ export default function Materie(props) {
   const loading = () => {
     return (
       <View>
-        <Text style={{fontSize: 20, fontWeight: '800', color: '#265CDE', marginBottom: 10}}>Aggiornamento...</Text>
+        <Text style={{fontSize: 20, fontWeight: '800', color: '#5c6cba', marginBottom: 10}}>Aggiornamento...</Text>
       </View>
     )
   }
@@ -70,7 +70,7 @@ export default function Materie(props) {
 
     <View style={styles.container}>
       <View style={styles.header}>
-          <Text style={{fontSize: responsiveFontSize(26), fontWeight: '700', color: '#265CDE'}}>Materie</Text>
+          <Text style={{fontSize: responsiveFontSize(26), fontWeight: '700', color: '#5c6cba'}}>Materie</Text>
       </View>
       <ScrollView 
         showsVerticalScrollIndicator ={false}

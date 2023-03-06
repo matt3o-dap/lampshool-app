@@ -7,7 +7,7 @@ import responsiveFontSize  from "../strumenti/responsiveFontSize";
 const Materia = props => {
     var caretStatus = props.caret;
     const caretUpDownSource = caretStatus ? require('../assets/images/caret-arrow-up.png') : require('../assets/images/caret-arrow-down.png');
-    const caretColor = caretStatus ? 'green' : 'red';
+    const caretColor = caretStatus ? '#5c6cba' : '#FF0000';
 
     return(
         <TouchableOpacity onPress={props.onPressLabel}>
@@ -50,13 +50,13 @@ const styles = (props) => StyleSheet.create({
         width: '55%',
         fontWeight: '400',
         fontSize: responsiveFontSize(16),
-        color: '#000',
+        color: '#5c6cba',
         marginLeft: 10,
     },
     number: {
         fontSize: responsiveFontSize(15), 
         fontWeight: '800', 
-        color: "#466dcc",
+        color: "#5c6cba",
         marginLeft: 20,
     }
 

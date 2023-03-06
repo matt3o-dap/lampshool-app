@@ -1,5 +1,4 @@
 import {FETCH_COMUNICAZIONI} from "../actions/fetchComunicazioni";
-import DATA from '../../data/offline-data';
 
 initialStateComunicazioni = {
     posts: [{

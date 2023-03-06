@@ -20,13 +20,13 @@ import responsiveFontSize  from "../strumenti/responsiveFontSize";
 
 const istituti = [
   {
-    label: '2020 Istituto Tecnico Luigi Di Maggio',
-    value: 'https://2020.registro.itdimaggio.edu.it/login/login.php?suffisso=it'
+    label: 'ITET Luigi Di Maggio',
+    value: 'https://registro.itdimaggio.edu.it/login/login.php?suffisso=it'
   },
   {
-    label: 'TESTING',
-    value: 'http://botcompiti.altervista.org/lampschool_custom/login/login.php?suffisso='
-  }
+    label: 'ITET Luigi Di Maggio - Corso Serale',
+    value: 'https://registro.itdimaggio.edu.it/login/login.php?suffisso=ser'
+  },
 ]
 
 
@@ -57,9 +57,13 @@ export default function AddAccount(props) {
   const onPressSwitch = (num) => {
     setIsSwitch(num);
   }
-  
 
   const onChangeIstituto = (value) => {
+    onChange(value);
+  }
+  
+
+  const onChange = (value) => {
     var regex = /[?&]([^=#]+)=([^&#]*)/g,
       params = {},
       match;
@@ -79,36 +83,36 @@ export default function AddAccount(props) {
   return (
     <KeyboardAvoidingView behavior={isIos ? "padding" : null } keyboardVerticalOffset={5}  >
         {/* <View style={{flex:1}}> */}
-        <ImageBackground style={styles.immagineBackground} source={require('../assets/images/login_screen.png')}>
+        <ImageBackground style={styles.immagineBackground} source={require('../assets/splash-white.png')}>
           <View style={styles.overlay} />
           <View style={{alignItems: 'center', flex: 1, justifyContent: 'center'}}>
-            <Image source={require('../assets/images/logo_lamp.png')} style={{height:'12%', resizeMode: "contain", marginBottom: 15}}  />
+            <Image source={require('../assets/icon.png')} style={{height:'12%', resizeMode: "contain", marginBottom: 15}}  />
               
               <View style={styles.bottom}>
-                  <Text style={{fontSize: responsiveFontSize(23), fontWeight: '800', color: '#265CDE'}}>Benvenuto</Text>
-                  <Text style={{fontSize: responsiveFontSize(12), fontWeight: '200', color: '#265CDE', marginBottom: 20}}>Inserisci le tue credenziali per accedere al <Text style={{fontWeight: '800', color: '#265CDE'}}>Registro Elettronico</Text></Text>
+                  <Text style={{fontSize: responsiveFontSize(23), fontWeight: '800', color: '#5c6cba'}}>Benvenuto</Text>
+                  <Text style={{fontSize: responsiveFontSize(12), fontWeight: '200', color: '#5c6cba', marginBottom: 20}}>Inserisci le tue credenziali per accedere al <Text style={{fontWeight: '800', color: '#5c6cba'}}>Registro Elettronico</Text></Text>
 
         
-                      <TextInput autoCapitalize = 'none' style={styles.input} placeholder="Username" placeholderTextColor= '#265CDE' value={username} onChangeText={value => setUsername(value)} />
-                      <TextInput autoCapitalize = 'none' secureTextEntry={true} style={styles.input} placeholder="Password" placeholderTextColor= '#265CDE' value={password} onChangeText={value => setPassword(value)} />
+                      <TextInput autoCapitalize = 'none' style={styles.input} placeholder="Username" placeholderTextColor= '#5c6cba' value={username} onChangeText={value => setUsername(value)} />
+                      <TextInput autoCapitalize = 'none' secureTextEntry={true} style={styles.input} placeholder="Password" placeholderTextColor= '#5c6cba' value={password} onChangeText={value => setPassword(value)} />
                       
                       <View style={styles.switchArgomenti}>
                           <View style={(isSwitch == 1) ? styles.tab : styles.tab_no}>
                               <TouchableOpacity onPress={() => onPressSwitch(1)}>
-                                  <Text style={{fontSize: responsiveFontSize(13), fontWeight: '700', color: '#265CDE'}}>Automatico</Text>
+                                  <Text style={{fontSize: responsiveFontSize(13), fontWeight: '700', color: '#5c6cba'}}>Automatico</Text>
                               </TouchableOpacity>
                           </View>
                           <View style={(isSwitch == 2) ? styles.tab : styles.tab_no}>
                               <TouchableOpacity onPress={() => onPressSwitch(2)}>
-                                  <Text style={{fontSize: responsiveFontSize(13), fontWeight: '700', color: '#265CDE'}}>Manuale</Text>
+                                  <Text style={{fontSize: responsiveFontSize(13), fontWeight: '700', color: '#5c6cba'}}>Manuale</Text>
                               </TouchableOpacity>
                           </View>
                       </View>
 
                       {(isSwitch != 1) ? 
                         <View style={styles.inlineInputContainer}>
-                          <TextInput autoCapitalize = 'none' style={[styles.inlineInput, {width: "60%"}]} placeholder="Link" placeholderTextColor= '#265CDE' value={link} onChangeText={value => setLink(value)} />
-                          <TextInput autoCapitalize = 'none' style={[styles.inlineInput, {width: "30%"}]} placeholder="Suffisso" placeholderTextColor= '#265CDE' value={suffisso} onChangeText={value => setSuffisso(value)} />
+                          <TextInput autoCapitalize = 'none' style={[styles.inlineInput, {width: "60%"}]} placeholder="Link" placeholderTextColor= '#5c6cba' value={link} onChangeText={value => setLink(value)} />
+                          <TextInput autoCapitalize = 'none' style={[styles.inlineInput, {width: "30%"}]} placeholder="Suffisso" placeholderTextColor= '#5c6cba' value={suffisso} onChangeText={value => setSuffisso(value)} />
                         </View>
                         :
                         <RNPickerSelect
@@ -118,19 +122,16 @@ export default function AddAccount(props) {
 
                           style={{...pickerSelectStyles}}
                           useNativeAndroidPickerStyle={false}
-                          textInputProps={{ underlineColor: 'yellow' }}
+                          textInputProps={{ underlineColor: 'blue' }}
                         />
                       }
-
-                      
-
 
                   <View style={{alignItems: "center"}}>
                     <TouchableOpacity onPress={onPressLogin} style={styles.appButtonContainer}>
                       <Text style={styles.appButtonText}>Accedi</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={onPressList}>
-                      <Text style={{fontSize:responsiveFontSize(13), fontWeight: '500', color: "#265CDE", marginTop: 20}}>Lista Account</Text>
+                      <Text style={{fontSize:responsiveFontSize(13), fontWeight: '500', color: "#5c6cba", marginTop: 20}}>Lista Account</Text>
                     </TouchableOpacity>
                   </View>
               </View>
@@ -149,16 +150,16 @@ const styles = StyleSheet.create({
   bottom: {
     width: SCREEN_WIDTH - 50,
     borderRadius: 30,
-    backgroundColor: '#F3F4F3',
+    backgroundColor: '#FFFFFF',
     padding: 30
   },
   input: {
     width: '100%',
-    borderColor: '#265CDE',
+    borderColor: '#5c6cba',
     borderBottomWidth: 1,
     paddingTop: 10,
     paddingBottom: 10,
-    color: '#265CDE',
+    color: '#5c6cba',
     marginBottom: 10,
   },
   inlineInputContainer: {
@@ -167,11 +168,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   inlineInput: {
-    borderColor: '#265CDE',
+    borderColor: '#5c6cba',
     borderBottomWidth: 1,
     paddingTop: 15,
     paddingBottom: 15,
-    color: '#265CDE',
+    color: '#5c6cba',
   },
   appButtonContainer: {
     marginTop: 30,
@@ -179,10 +180,10 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     width: SCREEN_WIDTH/2.5,
-    backgroundColor: '#265CDE',
+    backgroundColor: '#5c6cba',
     
     //Its for IOS
-    shadowColor: '#265CDE',
+    shadowColor: '#5c6cba',
     shadowOffset: {width: 0, height: 0},
     shadowOpacity: 0.5,
     shadowRadius: 15,
@@ -202,10 +203,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
     color: 'white',
-  },
-  overlay: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(38, 92, 222,0.5)',
   },
   switchArgomenti: {
     marginTop: 10,
@@ -240,9 +237,9 @@ const pickerSelectStyles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 10,
     borderWidth: 1,
-    borderColor: '#265CDE',
+    borderColor: '#5c6cba',
     borderRadius: 14,
-    color: '#265CDE',
+    color: '#5c6cba',
     fontWeight: '700',
     paddingRight: 30,
     marginTop: 25
@@ -252,9 +249,9 @@ const pickerSelectStyles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 8,
     borderWidth: 0.5,
-    borderColor: '#265CDE',
+    borderColor: '#5c6cba',
     borderRadius: 14,
-    color: '#265CDE',
+    color: '#5c6cba',
     paddingRight: 30, 
     marginTop: 25
   },

@@ -1,4 +1,5 @@
 import {fetchJson} from './fetchJSON';
+const { htmlToText } = require('html-to-text');
 import  moment from 'moment'
 
 export const FETCH_COMUNICAZIONI= 'FETCH_COMUNICAZIONI';
@@ -19,7 +20,16 @@ export const fetchComunicazioni = () => {
                     id: key,
                     ogg: myPosts.oggcom[key],
                     data: myPosts.datecom[key],
-                    testo: myPosts.testicom[key],
+                    testo: htmlToText(
+                        htmlToText(
+                            myPosts.testicom[key], {wordwrap: 200}
+                            ), {}
+                        ),
+                    testoAlt: htmlToText(
+                            htmlToText(
+                                myPosts.testicom[key], {wordwrap: 200}
+                                ), {}
+                            ).replace("\n", ""),
                     data: myPosts.datecom[key]
                 }
             )

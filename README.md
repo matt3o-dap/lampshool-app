@@ -19,9 +19,10 @@ L'applicazione fornisce:
 
 Installare Expo CLI seguendo la documentazione da [Expo Docs](https://docs.expo.dev/get-started/installation/)
 
-Posizionarsi nella dir principale del progetto ed eseguire il comando seguente per avviare il progetto.
+Posizionarsi nella dir principale del progetto ed eseguire i comandi seguenti per avviare il progetto.
 
-#### `expo start`
+#### `yarn`
+#### `npm run start`
 
 > Avvia l'applicazione nel simulatore configurato;
 
