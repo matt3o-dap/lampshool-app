@@ -72,11 +72,15 @@ export default function AddAccount(props) {
       params[match[1]] = match[2];
     }
     
-    var url_split = value.split( '/' );
-    var link = url_split[0]+'//'+url_split[1]+url_split[2]+'/';
-
-    setLink(link)
-    setSuffisso(params['suffisso'])
+    try {
+      var url_split = value.split( '/' );
+      var link = url_split[0]+'//'+url_split[1]+url_split[2]+'/';
+      
+      setLink(link)
+      setSuffisso(params['suffisso'])
+    } catch (error) {
+      console.log("split error")
+    } 
   }
 
 
